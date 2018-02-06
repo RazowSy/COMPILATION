@@ -1,0 +1,7 @@
+Compilation project in ESIR2 
+
+team: Connan Hugues, Heye Erwan, Melin Victor, Brunoy Sophy, Keroullas Solenn, Le Yhuélic Matthias
+
+- pretty printing 
+- translate WHILE language into 3 address code 
+- translate 3 address code into Python 
