@@ -1,0 +1,27 @@
+function foreache : 
+read X,Y % 
+
+foreach x in X do 
+
+			if 
+			x and z then 
+			nop 
+			fi 
+	;		
+	if 	x or z 
+	then 
+	
+		X := u
+	fi 	
+od %
+
+
+
+
+
+
+
+
+
+
+                                                               write X 

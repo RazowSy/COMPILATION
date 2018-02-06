@@ -1,0 +1,12 @@
+function whil:
+read X, Y
+%
+while a ?= b do
+	if a ?= b then
+		X := a+1
+else
+		X := b
+	fi
+od
+%
+write X

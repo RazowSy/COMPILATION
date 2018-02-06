@@ -1,0 +1,8 @@
+function busy1:
+read X
+%
+for X do
+X:= (cons nil X)
+od
+% 
+write X

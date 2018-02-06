@@ -1,0 +1,12 @@
+function p: read X , Y %
+ while a ?=  b do
+X :=  
+(cons A (list (cons a b) A));
+nop;
+if  a or b 
+or c or
+ d then nop 
+fi
+od
+% 
+write Z

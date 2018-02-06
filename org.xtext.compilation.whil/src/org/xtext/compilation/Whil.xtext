@@ -1,0 +1,144 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+Program:
+	(fonctions+=Fonction)*;
+
+Fonction:
+	'function' nom=SYMBOL ':'
+	'read' in=Input
+	'%'
+	commandes=Commandes
+	'%'
+	'write' out=Output
+;
+
+// COMANDEs
+Commandes:
+	commande=Commande (SEP commandes+=Commande)*
+;
+Commande:
+	commande=Nop
+	|commande=Affectation
+	|commande=If
+	|commande=While
+	|commande=For
+	|commande=ForEach
+;
+Affectation:
+	(variable+=Variable (',' variable+=Variable)* ) ':=' (elm+=Expression (',' elm+=Expression)*)
+
+;
+	
+If:
+	'if' cond=Expression  'then'  cmdsIf=Commandes  ('else'  cmdsElse=Commandes )? 'fi'
+;	
+
+While:
+	'while' cond=Expression  'do'  cmdsWh=Commandes  'od'
+;
+
+For:
+	'for'  cond=Expression  'do' cmdsFor=Commandes  'od'
+;
+
+ForEach:
+	'foreach' elem = Expression 'in' ensemble = Expression 'do' cmdsFor=Commandes  'od'
+;
+
+Nop:
+	nop='nop'
+;
+
+
+// EXPR
+
+Expression:
+	(=> cond=Condition | exprs=ExprSimple)
+;
+ExprSimple:
+	nil=Nill
+	|variable=Variable
+	|abin=ABin
+	|symb=SYMBOL
+	|accsucc=AccSucc
+	|elemSimple=ElemSimple
+	
+
+
+;
+Variable:
+	variable=MAJ 
+;
+
+Lexpr:
+	e1=ExprSimple lexpr=Lexpr ?
+;
+
+ElemSimple:
+	'(' symb=SYMBOL lexpr=Lexpr ')' 
+;
+
+
+Condition :
+	  Not expr=Expression|
+	 e1=ExprSimple comp=COMPARATEUR e2=Expression
+;
+
+
+ABin:
+	 '(' op=OpConstructeur e1=Expression e2=Expression ')' 
+;
+AccSucc:
+	'(' op=OpAccSucc expr=ExprSimple ')'
+;
+
+// IN OUT
+
+Output:
+	out+=MAJ (',' out+= MAJ)*
+;
+
+Input:
+	in+=MAJ (',' in += MAJ)*
+;
+
+// TERMINAUX
+Nill:
+	nil='nil'
+;
+
+OpAccSucc :
+	{OpAccSucc}(op='hd'|op='tl')
+;
+
+Not:
+	not='not'
+;
+
+OpConstructeur:
+	{OpConstructeur}(op= 'cons' | op= 'list')
+;
+
+ COMPARATEUR:
+	comparateur='=?'
+	|comparateur='or'
+	|comparateur='and'
+;
+
+terminal SEP:
+	';'
+;
+terminal MAJ:
+	('A'..'Z')('A'..'Z'|'a'..'z')*
+;
+terminal SYMBOL:
+	('a'..'z')('A'..'Z'|'a'..'z'|'0'..'9')*
+	((('-'|'+'|'.'|'/'|'_'|'&')|"->")('0'..'9'|'a'..'z'|'A'..'Z')+)*
+	('?'|'!')?
+;
+
+terminal ESPACE:
+	'\n'
+;

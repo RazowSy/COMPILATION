@@ -1,0 +1,13 @@
+function p: 
+read X, Y
+%
+
+W,Y := (a nil nil),Y;
+A:= (a nil nil); 
+
+X := (cons A (		 list (cons    nil b) A		)	);
+X:= not (hd a);
+nop
+%
+write Z
+

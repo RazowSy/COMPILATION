@@ -1,0 +1,6 @@
+function iseq:
+read X,Y
+%
+Z := X ?= Y
+%
+write Z

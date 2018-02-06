@@ -1,0 +1,11 @@
+function foreache:
+read X, Y
+%
+foreach x in X do
+	X := z ;
+	if x and z then
+		nop
+	fi
+od
+%
+write X, Y

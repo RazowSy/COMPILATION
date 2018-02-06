@@ -1,0 +1,6 @@
+function dummy2:
+read X
+%
+X:=nil
+% 
+write X

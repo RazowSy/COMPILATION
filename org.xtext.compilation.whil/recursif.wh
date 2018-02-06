@@ -1,0 +1,11 @@
+function recursif:
+read X
+%
+if X =? nil then
+	nop
+else 
+	X := (tl X);
+	X := (recursif X)
+fi
+%
+write X

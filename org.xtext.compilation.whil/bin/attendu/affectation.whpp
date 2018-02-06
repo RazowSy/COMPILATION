@@ -1,0 +1,10 @@
+function p:
+read X, Y
+%
+W, Y := (a nil nil), Y ;
+A := (a nil nil) ;
+X := (cons A (list (cons nil b) A)) ;
+X :=  pas encore fait ça bug  ;
+nop
+%
+write Z

@@ -1,0 +1,8 @@
+function p: 
+read X, Y
+%
+W,Y:= not b, a or b;
+if W then nop
+fi
+%
+write Z

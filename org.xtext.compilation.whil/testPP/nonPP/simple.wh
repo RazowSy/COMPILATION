@@ -1,0 +1,6 @@
+function p :
+		read X, Y
+		% 
+		X, Y := (cons a b) , (hd a)
+		% 
+		write X, Z

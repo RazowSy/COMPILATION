@@ -1,0 +1,6 @@
+function dummy1:
+read X
+%
+nop
+% 
+write X

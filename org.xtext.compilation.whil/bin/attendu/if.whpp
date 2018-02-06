@@ -1,0 +1,17 @@
+function p:
+read X, Y
+%
+if a ?= b then
+	X := (cons A (list (cons a b) A)) ;
+	nop
+else
+	X := (cons A (list (cons a b) A)) ;
+	if a or b then
+		nop ;
+		for a ?= b do
+			nop
+		od
+	fi
+fi
+%
+write I, T, W, O, R, K

@@ -1,0 +1,8 @@
+function p : 
+read YEZ
+ % nop %
+ write Y
+ function p : 
+ read YEZ
+ % nop %
+write Y

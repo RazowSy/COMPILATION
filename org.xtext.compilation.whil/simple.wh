@@ -1,0 +1,7 @@
+function iseq:
+read X
+%
+if a then nop
+fi
+%
+write X

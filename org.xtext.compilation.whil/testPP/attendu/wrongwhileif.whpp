@@ -1,0 +1,9 @@
+function whil:
+read X, Y
+%
+while a ?= b do if a or b then
+		X := a+1 ;Y := b else
+		X := b fi
+od
+%
+write X
